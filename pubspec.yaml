@@ -1,0 +1,21 @@
+name: 'mdown_benchmark'
+version: 0.0.1
+description: Benchmark for mdown.
+author: Maksim Dzikun <dikmax@gmail.com>
+homepage: https://github.com/dikmax/mdown_benchmark
+
+environment:
+  sdk: '>=1.21.0 <2.0.0'
+
+dependencies:
+  benchmark_harness: '1.0.4'
+  markdown: any
+  mdown:
+    path: '../mdown/'
+
+dev_dependencies:
+  browser: '>=0.10.0 <0.11.0'
+  dart_to_js_script_rewriter: '^1.0.1'
+
+transformers:
+- dart_to_js_script_rewriter
