@@ -62,10 +62,5 @@ Future<dynamic> main() async {
     results[lang] = await test(urls);
   }
 
-  results.forEach((String k, List<double> v) {
-    print('$k | '
-        '${v[0].toStringAsFixed(2)} | '
-        '${v[1].toStringAsFixed(2)} | '
-        '${(v[1] / v[0]).toStringAsFixed(2)}');
-  });
+  printResults(results);
 }

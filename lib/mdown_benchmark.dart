@@ -64,3 +64,24 @@ class MarkdownBenchmark extends BenchmarkBase {
         extensionSet: markdown.ExtensionSet.commonMark);
   }
 }
+
+void printResults(Map<String, List<double>> results) {
+  List<double> total = <double>[0.0, 0.0];
+  results.forEach((String k, List<double> v) {
+    total[0] += v[0];
+    total[1] += v[1];
+    final double ratio = v[1] / v[0];
+    String ratioString = 'x${ratio.toStringAsFixed(2)}';
+    if (ratio < 1) {
+      ratioString = '*$ratioString*';
+    }
+    print(' $k | '
+        '${v[0].toStringAsFixed(2)} | '
+        '${v[1].toStringAsFixed(2)} | '
+        '$ratioString');
+  });
+  print(' **Total** | '
+      '${total[0].toStringAsFixed(2)} | '
+      '${total[1].toStringAsFixed(2)} |'
+      '**x${(total[1] / total[0]).toStringAsFixed(2)}**');
+}
